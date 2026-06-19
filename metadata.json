@@ -1,0 +1,6 @@
+{
+  "name": "Norton Support Center",
+  "description": "A high-fidelity interactive replica of the Norton Support portal that matches the visual language, colors, and content structure.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
