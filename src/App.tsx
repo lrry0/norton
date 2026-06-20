@@ -4,7 +4,7 @@ import {
   Search, Smartphone, RefreshCw, User, CircleUser, Shield, ShieldAlert, KeyRound, 
   CloudUpload, Lock, Users, Laptop, ShieldCheck, FileCheck,
   X, Check, AlertTriangle, ArrowRight, MessageSquare, Send,
-  Globe, Instagram, Facebook, Youtube, ChevronDown, ChevronRight, HelpCircle
+  Globe, Instagram, Facebook, Youtube, ChevronDown, ChevronRight, HelpCircle, Menu
 } from 'lucide-react';
 import { SUPPORT_ARTICLES, PRIMARY_HELP_CARDS, GENERAL_PRODUCT_CARDS, FOOTER_LINKS_DATA } from './data/supportData';
 import { SupportArticle, ProductCardData } from './types';
@@ -157,15 +157,23 @@ export default function App() {
 
       {/* --- HEADER --- */}
       <header className="sticky top-0 z-40 bg-white border-b border-gray-150 shadow-xs">
-        <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-2 sm:px-4 lg:px-6">
+        <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6">
           
+          {/* Mobile Menu Icon (left) */}
+          <button 
+            className="md:hidden p-1 -ml-1 text-gray-700 hover:text-gray-950 transition-colors cursor-pointer"
+            onClick={() => triggerToast('Mobile Navigation Menu opened')}
+          >
+            <Menu className="h-6 w-6" />
+          </button>
+
           {/* Brand Logo */}
-          <div className="flex items-center gap-10">
-            <div className="flex items-center select-none cursor-pointer relative w-[160px] h-14" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <div className="flex items-center gap-10 flex-1 md:flex-initial justify-center md:justify-start">
+            <div className="flex items-center select-none cursor-pointer relative w-[120px] sm:w-[160px] h-14" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               <img 
                 src={nortonLogo} 
                 alt="Norton" 
-                className="h-20 w-auto object-contain absolute left-0 top-1/2 -translate-y-1/2 max-w-none"
+                className="h-16 sm:h-20 w-auto object-contain absolute left-1/2 -translate-x-1/2 md:left-0 md:translate-x-0 top-1/2 -translate-y-1/2 max-w-none"
                 referrerPolicy="no-referrer"
               />
             </div>
@@ -205,8 +213,8 @@ export default function App() {
               onClick={() => triggerToast('Direct profile Sign-In module simulator activated.')}
               className="flex items-center gap-1.5 text-[14px] font-medium text-gray-700 hover:text-gray-950 transition-all cursor-pointer"
             >
-              <CircleUser className="h-4.5 w-4.5 text-gray-800" />
-              <span>Sign In</span>
+              <CircleUser className="h-5 w-5 text-gray-800" />
+              <span className="hidden sm:inline">Sign In</span>
             </button>
           </div>
 
@@ -308,13 +316,13 @@ export default function App() {
         </div>
 
         {/* --- FLOATING PROMO BANNER --- */}
-        <div className="absolute left-1/2 bottom-0 translate-y-1/2 -translate-x-1/2 w-[90%] max-w-4xl px-4 z-20">
-          <div className="rounded-2xl bg-white border border-gray-150 p-4 sm:p-5 shadow-xl flex flex-col md:flex-row items-center justify-between gap-5">
+        <div className="absolute left-1/2 bottom-0 translate-y-1/2 -translate-x-1/2 w-[92%] max-w-5xl px-4 z-20">
+          <div className="rounded-3xl bg-[#F5F2EB] border border-[#E6E1D5] p-6 sm:p-8 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
             
             {/* Promo Left (Visual + Copy) */}
-            <div className="flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
+            <div className="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left w-full">
               {/* Product holding visual */}
-              <div className="h-20 w-28 shrink-0 rounded-xl overflow-hidden shadow-xs border border-gray-100 bg-gray-50">
+              <div className="h-24 w-36 sm:h-28 sm:w-44 shrink-0 rounded-2xl overflow-hidden shadow-md border border-gray-200 bg-white">
                 <img 
                   src={userOnPhone} 
                   alt="Norton Online Check-up Tool" 
@@ -323,10 +331,10 @@ export default function App() {
                 />
               </div>
 
-              <div className="space-y-1">
+              <div className="space-y-1.5">
                 <h3 className="text-xs uppercase font-extrabold tracking-wider text-amber-600">FREE ONLINE CHECK-UP</h3>
-                <p className="text-sm font-bold text-gray-900">Get an online check up done for free.</p>
-                <p className="text-[10.5px] text-gray-500 leading-normal">
+                <p className="text-base sm:text-lg font-extrabold text-gray-900">Get an online check up done for free.</p>
+                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
                   Scan your device for malware, privacy risks, and speed issues in less than 2 minutes. No credit card required.
                 </p>
               </div>
@@ -337,7 +345,7 @@ export default function App() {
               onClick={() => {
                 triggerToast('Downloading Norton Security Inspector utility...');
               }}
-              className="rounded-full bg-[#FC0] hover:bg-yellow-400 text-xs font-bold text-slate-950 px-8 py-3 transition-transform duration-100 active:scale-95 shadow-md shrink-0 cursor-pointer"
+              className="rounded-full bg-[#FFE600] border-2 border-black hover:bg-[#E6CE00] text-sm font-extrabold text-slate-950 px-10 py-3.5 transition-all duration-100 active:scale-95 shadow-md shrink-0 cursor-pointer hover:scale-[1.02]"
             >
               Download
             </button>
@@ -357,16 +365,16 @@ export default function App() {
             What can we help you with?
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
             {PRIMARY_HELP_CARDS.map(card => (
               <motion.div 
                 key={card.id}
                 whileHover={{ y: -4, shadow: '0 12px 20px -8px rgba(0,0,0,0.06)' }}
                 onClick={() => handlePrimaryCardClick(card.actionType)}
-                className="rounded-2xl border border-gray-150 bg-white p-8 shadow-xs flex flex-col items-center justify-center text-center cursor-pointer space-y-4 hover:border-amber-400/80 transition-all group min-h-[160px]"
+                className="rounded-2xl border border-gray-150 bg-white p-4 sm:p-8 shadow-xs flex flex-row md:flex-col items-center justify-start md:justify-center text-left md:text-center cursor-pointer gap-4 hover:border-amber-400/80 transition-all group min-h-[80px] md:min-h-[160px]"
               >
-                {renderIcon(card.iconName, "h-10 w-10 text-gray-800 group-hover:text-amber-600 transition-colors", true)}
-                <h3 className="text-[13px] font-bold text-gray-900 group-hover:text-amber-700 transition-colors">{card.title}</h3>
+                {renderIcon(card.iconName, "h-8 w-8 md:h-10 md:w-10 text-gray-800 group-hover:text-amber-600 transition-colors shrink-0", true)}
+                <h3 className="text-sm md:text-[13px] font-bold text-gray-900 group-hover:text-amber-700 transition-colors">{card.title}</h3>
               </motion.div>
             ))}
           </div>
@@ -382,16 +390,16 @@ export default function App() {
             Help with Norton Products
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
             {GENERAL_PRODUCT_CARDS.map(card => (
               <motion.div 
                 key={card.id}
                 whileHover={{ y: -3, shadow: '0 8px 16px -6px rgba(0,0,0,0.06)' }}
                 onClick={() => handleProductCardClick(card.actionType)}
-                className="rounded-xl border border-gray-150 bg-white p-8 shadow-xs flex flex-col items-center justify-center text-center cursor-pointer space-y-3 hover:border-amber-300 transition-all group"
+                className="rounded-xl border border-gray-150 bg-white p-4 sm:p-8 shadow-xs flex flex-row md:flex-col items-center justify-start md:justify-center text-left md:text-center cursor-pointer gap-4 hover:border-amber-300 transition-all group min-h-[70px]"
               >
-                {renderIcon(card.iconName, "h-10 w-10 text-gray-800 group-hover:text-amber-600 transition-colors", true)}
-                <h3 className="text-[13px] font-bold text-gray-900 group-hover:text-amber-700 transition-colors">{card.title}</h3>
+                {renderIcon(card.iconName, "h-7 w-7 md:h-10 md:w-10 text-gray-800 group-hover:text-amber-600 transition-colors shrink-0", true)}
+                <h3 className="text-sm md:text-[13px] font-bold text-gray-900 group-hover:text-amber-700 transition-colors">{card.title}</h3>
               </motion.div>
             ))}
           </div>
@@ -416,10 +424,10 @@ export default function App() {
                 Learn more about some of the most common scams and crimes our customers encounter as well as useful tips to help prevent you from being victimized.
               </p>
 
-              <div className="pt-2">
+              <div className="pt-3">
                 <button 
                   onClick={() => setActiveOverlay('scam-quiz')}
-                  className="rounded-lg bg-gray-900 hover:bg-gray-800 text-xs font-bold text-white px-6 py-2.5 shadow-xs transition-colors cursor-pointer"
+                  className="rounded-full bg-[#FFE600] border border-black hover:bg-[#E6CE00] text-sm font-extrabold text-slate-950 px-8 py-3 transition-all duration-100 active:scale-95 shadow-md cursor-pointer hover:scale-[1.02]"
                 >
                   Read more
                 </button>
@@ -530,7 +538,7 @@ export default function App() {
       <footer className="bg-[#FAF9F6] pt-12 pb-6 text-gray-700 text-xs">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pb-12 border-b border-gray-200">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 pb-12 border-b border-gray-200">
             
             {/* Col 1 */}
             <div>
