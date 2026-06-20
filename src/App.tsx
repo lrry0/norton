@@ -9,6 +9,10 @@ import {
 import { SUPPORT_ARTICLES, PRIMARY_HELP_CARDS, GENERAL_PRODUCT_CARDS, FOOTER_LINKS_DATA } from './data/supportData';
 import { SupportArticle, ProductCardData } from './types';
 import { ArticleViewer, ThreatScanner, ActivationWizard, ScamQuiz } from './components/InteractiveOverlays';
+import nortonLogo from './assets/images/norton_logo.png';
+import userOnPhone from './assets/images/user_on_phone_1781864001658.png';
+import scamPrevention from './assets/images/scam_prevention_1781864017898.png';
+
 
 export default function App() {
   // Search & Navigation States
@@ -159,7 +163,7 @@ export default function App() {
           <div className="flex items-center gap-10">
             <div className="flex items-center select-none cursor-pointer relative w-[160px] h-14" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               <img 
-                src="/src/assets/images/norton_logo.png?v=2" 
+                src={nortonLogo} 
                 alt="Norton" 
                 className="h-20 w-auto object-contain absolute left-0 top-1/2 -translate-y-1/2 max-w-none"
                 referrerPolicy="no-referrer"
@@ -312,7 +316,7 @@ export default function App() {
               {/* Product holding visual */}
               <div className="h-20 w-28 shrink-0 rounded-xl overflow-hidden shadow-xs border border-gray-100 bg-gray-50">
                 <img 
-                  src="/src/assets/images/user_on_phone_1781864001658.png" 
+                  src={userOnPhone} 
                   alt="Norton Online Check-up Tool" 
                   className="h-full w-full object-cover"
                   referrerPolicy="no-referrer"
@@ -426,7 +430,7 @@ export default function App() {
             <div className="w-full lg:max-w-md shrink-0">
               <div className="aspect-video rounded-2xl overflow-hidden shadow-md bg-white border border-gray-150">
                 <img 
-                  src="/src/assets/images/scam_prevention_1781864017898.png" 
+                  src={scamPrevention} 
                   alt="Scam Prevention Advice" 
                   className="h-full w-full object-cover hover:scale-103 transition-transform duration-300"
                   referrerPolicy="no-referrer"
@@ -663,7 +667,7 @@ export default function App() {
         )}
 
         {activeOverlay === 'scam-quiz' && (
-          <ScamQuiz imagePath="/src/assets/images/scam_prevention_1781864017898.png" onClose={() => setActiveOverlay('none')} />
+          <ScamQuiz imagePath={scamPrevention} onClose={() => setActiveOverlay('none')} />
         )}
       </AnimatePresence>
 
