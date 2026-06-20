@@ -317,12 +317,12 @@ export default function App() {
 
         {/* --- FLOATING PROMO BANNER --- */}
         <div className="absolute left-1/2 bottom-0 translate-y-1/2 -translate-x-1/2 w-[92%] max-w-5xl px-4 z-20">
-          <div className="rounded-3xl bg-[#F5F2EB] border border-[#E6E1D5] p-6 sm:p-8 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="rounded-3xl bg-[#F5F2EB] border border-[#E6E1D5] p-5 md:p-8 shadow-xl flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
             
             {/* Promo Left (Visual + Copy) */}
-            <div className="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left w-full">
-              {/* Product holding visual */}
-              <div className="h-24 w-36 sm:h-28 sm:w-44 shrink-0 rounded-2xl overflow-hidden shadow-md border border-gray-200 bg-white">
+            <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6 text-center md:text-left w-full">
+              {/* Product holding visual - Hidden on mobile/tablet */}
+              <div className="hidden md:block h-24 w-36 sm:h-28 sm:w-44 shrink-0 rounded-2xl overflow-hidden shadow-md border border-gray-200 bg-white">
                 <img 
                   src={userOnPhone} 
                   alt="Norton Online Check-up Tool" 
@@ -331,10 +331,10 @@ export default function App() {
                 />
               </div>
 
-              <div className="space-y-1.5">
-                <h3 className="text-xs uppercase font-extrabold tracking-wider text-amber-600">FREE ONLINE CHECK-UP</h3>
-                <p className="text-base sm:text-lg font-extrabold text-gray-900">Get an online check up done for free.</p>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+              <div className="space-y-1 text-center md:text-left">
+                <h3 className="text-[10px] sm:text-xs uppercase font-extrabold tracking-wider text-amber-600">FREE ONLINE CHECK-UP</h3>
+                <p className="text-sm sm:text-base md:text-lg font-extrabold text-gray-900">Get an online check up done for free.</p>
+                <p className="text-[11px] sm:text-xs md:text-sm text-gray-600 leading-relaxed max-w-2xl">
                   Scan your device for malware, privacy risks, and speed issues in less than 2 minutes. No credit card required.
                 </p>
               </div>
@@ -345,7 +345,7 @@ export default function App() {
               onClick={() => {
                 triggerToast('Downloading Norton Security Inspector utility...');
               }}
-              className="rounded-full bg-[#FFE600] border-2 border-black hover:bg-[#E6CE00] text-sm font-extrabold text-slate-950 px-10 py-3.5 transition-all duration-100 active:scale-95 shadow-md shrink-0 cursor-pointer hover:scale-[1.02]"
+              className="rounded-full bg-[#FFE600] border-2 border-black hover:bg-[#E6CE00] text-xs md:text-sm font-extrabold text-slate-950 px-8 md:px-10 py-2.5 md:py-3.5 transition-all duration-100 active:scale-95 shadow-md shrink-0 cursor-pointer hover:scale-[1.02]"
             >
               Download
             </button>
