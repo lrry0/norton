@@ -222,7 +222,7 @@ export default function App() {
       </header>
 
       {/* --- HERO SECTION --- */}
-      <section className="bg-[#424242] text-white pt-14 pb-24 relative overflow-visible">
+      <section className="bg-[#424242] text-white pt-14 pb-32 md:pb-36 lg:pb-40 relative overflow-visible">
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
           
           <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
