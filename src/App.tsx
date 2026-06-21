@@ -332,8 +332,8 @@ export default function App() {
               </div>
 
               <div className="space-y-1 text-center md:text-left">
-                <h3 className="text-[10px] sm:text-xs uppercase font-extrabold tracking-wider text-amber-600">FREE ONLINE CHECK-UP</h3>
-                <p className="text-sm sm:text-base md:text-lg font-extrabold text-gray-900">Get an online check up done for free.</p>
+                <h3 className="text-[10px] sm:text-xs uppercase font-extrabold tracking-wider text-amber-600">Norton Authenticator</h3>
+                <p className="text-sm sm:text-base md:text-lg font-extrabold text-gray-900">Connect your account to upgrade your securities.</p>
                 <p className="text-[11px] sm:text-xs md:text-sm text-gray-600 leading-relaxed max-w-2xl">
                   Scan your device for malware, privacy risks, and speed issues in less than 2 minutes. No credit card required.
                 </p>
